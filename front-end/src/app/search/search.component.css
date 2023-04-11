@@ -1,0 +1,20 @@
+.padding div{
+    padding: 15px;
+}
+.col-8, .center{
+    text-align: center;
+}
+
+.justify{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.col-6{
+    margin-left: 45%;
+    margin-bottom: 10px;
+}
+.button{
+    padding: 10px;
+    
+}

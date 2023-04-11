@@ -1,0 +1,26 @@
+<div class="row padding">
+    <div class="col-12">
+        <au-form [categories]="categories" (onChangeCategory)="setCategory($event)" (onChangeName)="setName($event)"></au-form>
+    </div>
+
+    <div class="col-12" *ngFor="let auction of auctions">
+        <div class="row">
+            <div class="col-4">
+                <img src="assets/images/items/{{auction?.image}}">
+            </div>
+            <div class="col-8">
+                <h2 class="center">{{auction.name}}</h2>
+                <p class="justify">{{auction.description}}</p>
+                <p class="center"><b>Cena: {{auction.price}},00 din</b></p>
+                <p class="center">Datum objave: {{auction.dateStart}}, 
+                    Datum zatvaranja: {{auction.dateEnd}}</p> <!-- | date: 'HH:mm, dd.MM.yyyy'-->
+                <p class="center">Kategorija: {{auction.category}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <button class="button" (click)="showLoadMore()" *ngIf = "loadMore">Load more...</button>
+    </div>
+
+</div>

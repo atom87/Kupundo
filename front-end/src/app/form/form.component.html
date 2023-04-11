@@ -1,0 +1,38 @@
+<form #myForm="ngForm" (ngSubmit)="changeName()" novalidate>
+    <div class="row form-group">
+
+        <div class="col-sm-2">
+            <div class="row">
+            <label for="category" class="col-sm-5">Kategorija: </label>
+            <select name="newCat" class="form-control col-sm-7" [(ngModel)]="newCat" (change)="updateSubcategory()">
+                <option [ngValue]="''">All</option>
+                <option *ngFor="let cat of categories" [ngValue]="cat._id">{{cat.name}}</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="row">
+                <label for="subcategory" class="col-sm-5">Potkategorija: </label>
+                <select name="editedSubcat" class="form-control col-sm-7" [(ngModel)]="editedSubcat" (change)="changeCategory()">
+                    <option *ngFor= "let sub of newSubcat" [ngValue]="sub">{{sub}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="row">
+                <label for="name" class="col-sm-3">Ime: </label>
+                <input type="text" class="form-control col-sm-9" name="editedName" [(ngModel)]="editedName" value="name">
+                <div class="row">
+                    <div class="col-sm-12" *ngIf="show">
+                        <span><b>Izabrali ste nepostojeci predmet!</b></span>
+                        <button (click)="goToList()">Povratak na listu</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</form>

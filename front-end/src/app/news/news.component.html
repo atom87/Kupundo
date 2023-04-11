@@ -1,0 +1,43 @@
+<div class="padding">
+    <div class="row">
+        <div class="col-12">
+            <p>Aukcije na Internetu - pronaći ćeš sve o čemu si sanjao. Nema lakšeg načina kupovine i prodaje na Internetu.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <p><b>Najnovije postavljene aukcije:</b></p>
+        </div>
+        <div class="col-6">
+            <p><b>Aukcije koje uskoro isticu:</b></p>
+        </div>
+
+        <div class="col-6">
+            <ngb-carousel [interval]='7000'>
+                <ng-template ngbSlide *ngFor = "let auction of newAuctions">
+                    <img src="assets/images/items/{{auction.image}}">
+                    <div class="carousel-caption text-dark">
+                        <h3 class="auction-info"><b>{{auction.name}}</b></h3>
+                        <p class="auction-info"><b>Cena: {{auction.price}},00 din</b></p>
+                        <p class="auction-info"><b>Datum zatvaranja: {{auction.dateEnd | date: 'HH:mm, dd.MM.yyyy'}}</b></p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+
+        <div class="col-6">
+            <ngb-carousel [interval]='7000'>
+                <ng-template ngbSlide *ngFor = "let auction of oldAuctions">
+                    <img src="assets/images/items/{{auction.image}}">
+                    <div class="carousel-caption text-dark">
+                        <h3 class="auction-info"><b>{{auction.name}}</b></h3>
+                        <p class="auction-info"><b>Cena: {{auction.price}},00 din</b></p>
+                        <p class="auction-info"><b>Datum zatvaranja: {{auction.dateEnd | date: 'HH:mm, dd.MM.yyyy'}}</b></p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+
+    </div>
+</div>
